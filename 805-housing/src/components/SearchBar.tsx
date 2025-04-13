@@ -1,14 +1,12 @@
-// src/components/SearchBar.jsx
+// src/components/SearchBar.tsx
 import React from "react";
+import TextField from "@mui/material/TextField";
+import Box from "@mui/material/Box";
 
 export default function SearchBar() {
   return (
-    <div className="mb-6">
-      <input
-        type="text"
-        placeholder="Search for listings..."
-        className="w-full p-3 border rounded shadow-sm"
-      />
-    </div>
+    <Box mb={3}>
+      <TextField fullWidth label="Search for listings..." variant="outlined" />
+    </Box>
   );
 }

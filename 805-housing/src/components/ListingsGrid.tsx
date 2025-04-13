@@ -1,5 +1,6 @@
-// src/components/ListingsGrid.jsx
+// src/components/ListingsGrid.tsx
 import React from "react";
+import Grid from "@mui/material/Grid";
 import ListingCard from "./ListingCard";
 
 const listings = [
@@ -19,10 +20,12 @@ const listings = [
 
 export default function ListingsGrid() {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <Grid container spacing={2}>
       {listings.map((listing) => (
-        <ListingCard key={listing.id} {...listing} />
+        <Grid item xs={12} sm={6} md={4} key={listing.id}>
+          <ListingCard {...listing} />
+        </Grid>
       ))}
-    </div>
+    </Grid>
   );
 }

@@ -1,15 +1,21 @@
-// src/components/Navbar.jsx
+// src/components/Navbar.tsx
 import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
 
 export default function Navbar() {
   return (
-    <nav className="bg-white shadow-md p-4 flex justify-between items-center">
-      <h1 className="text-xl font-bold">805 Housing</h1>
-      <div className="space-x-4">
-        <button>Dashboard</button>
-        <button>Saved</button>
-        <button>Profile</button>
-      </div>
-    </nav>
+    <AppBar position="static">
+      <Toolbar>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          805 Housing
+        </Typography>
+        <Button color="inherit">Dashboard</Button>
+        <Button color="inherit">Saved</Button>
+        <Button color="inherit">Profile</Button>
+      </Toolbar>
+    </AppBar>
   );
 }

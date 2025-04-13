@@ -1,27 +1,27 @@
+// src/components/ListingCard.tsx
 import React from "react";
-import { Link } from "react-router-dom";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
 
-interface Props {
-  id: number;
-  title: string;
-  price: string;
-  img: string;
-}
-
-const ListingCard: React.FC<Props> = ({ id, title, price, img }) => {
+export default function ListingCard({ title, price, img }) {
   return (
-    <div className="bg-white p-4 rounded shadow-md">
-      <img src={img} alt={title} className="w-full h-40 object-cover rounded" />
-      <h3 className="text-lg font-semibold mt-2">{title}</h3>
-      <p className="text-gray-600">{price}</p>
-      <Link
-        to={`/listing/${id}`}
-        className="mt-2 inline-block text-blue-500 hover:underline"
-      >
-        View Details
-      </Link>
-    </div>
+    <Card>
+      <CardMedia component="img" height="140" image={img} alt={title} />
+      <CardContent>
+        <Typography gutterBottom variant="h6" component="div">
+          {title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {price}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Button size="small">View Details</Button>
+      </CardActions>
+    </Card>
   );
-};
-
-export default ListingCard;
+}

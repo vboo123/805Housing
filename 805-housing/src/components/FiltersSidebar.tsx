@@ -1,25 +1,32 @@
-// src/components/FiltersSidebar.jsx
+// src/components/FiltersSidebar.tsx
 import React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Slider from "@mui/material/Slider";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 export default function FiltersSidebar() {
   return (
-    <aside className="w-64 bg-white p-4 shadow-md">
-      <h2 className="text-lg font-semibold mb-4">Filters</h2>
-      <div className="space-y-3">
-        <div>
-          <label className="block text-sm">Price Range</label>
-          <input type="range" className="w-full" />
-        </div>
-        <div>
-          <label className="block text-sm">Bedrooms</label>
-          <select className="w-full border p-1 rounded">
-            <option>Any</option>
-            <option>1+</option>
-            <option>2+</option>
-            <option>3+</option>
-          </select>
-        </div>
-      </div>
-    </aside>
+    <Box sx={{ width: 240, p: 2, borderRight: "1px solid #ccc" }}>
+      <Typography variant="h6" gutterBottom>
+        Filters
+      </Typography>
+      <Box mb={3}>
+        <Typography variant="body2">Price Range</Typography>
+        <Slider defaultValue={500} min={0} max={5000} step={100} />
+      </Box>
+      <FormControl fullWidth>
+        <InputLabel>Bedrooms</InputLabel>
+        <Select defaultValue="Any" label="Bedrooms">
+          <MenuItem value="Any">Any</MenuItem>
+          <MenuItem value={1}>1+</MenuItem>
+          <MenuItem value={2}>2+</MenuItem>
+          <MenuItem value={3}>3+</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
   );
 }
